@@ -26,3 +26,9 @@ This repo is a collection of AWS CLI queries, organized by service.
 **Returns the ARN for a target group named HTTPTargetGroup**
 
 `aws elbv2 describe-target-groups --name HTTPTargetGroup --query "TargetGroups[*].TargetGroupArn" | jq -r '.[0]')`
+
+
+## IAM
+
+**Creates a new Access Key Pair and saves the SecretAccessKey to a variable**
+`ECRUSERSECRETACCESSKEY=$(aws iam create-access-key --user-name myUser | jq -r '.[].SecretAccessKey')`
