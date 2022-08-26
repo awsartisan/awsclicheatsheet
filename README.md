@@ -27,6 +27,11 @@ This repo is a collection of AWS CLI queries, organized by service.
 
 `aws elbv2 describe-target-groups --name HTTPTargetGroup --query "TargetGroups[*].TargetGroupArn" | jq -r '.[0]')`
 
+**Describe instances concisely**
+
+`aws ec2 describe-instances | jq '[.Reservations | .[] | .Instances | .[] | {InstanceId: .InstanceId, State: .State, SubnetId: .SubnetId, VpcId: .VpcId, Name: (.Tags[]|select(.Key=="Name")|.Value)}]'`
+
+
 
 ## IAM
 
