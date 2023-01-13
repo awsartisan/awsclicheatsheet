@@ -31,6 +31,10 @@ This repo is a collection of AWS CLI queries, organized by service.
 
 `aws ec2 describe-instances | jq '[.Reservations | .[] | .Instances | .[] | {InstanceId: .InstanceId, State: .State, SubnetId: .SubnetId, VpcId: .VpcId, Name: (.Tags[]|select(.Key=="Name")|.Value)}]'`
 
+**Returns instance ID**
+
+`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`
+
 
 
 ## IAM
