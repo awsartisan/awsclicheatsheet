@@ -4,9 +4,9 @@ This repo is a collection of AWS CLI queries, organized by service.
 
 ## VPC
 
-**Returns the vpc-id for a VPC with the following tag: Name,Values=Lab-VPC**
+**Returns the vpc-id for the default VPC**
 
-`aws ec2 describe-vpcs --filter Name=tag:Name,Values=Lab-VPC --query Vpcs[].VpcId --output text`
+`aws ec2 describe-vpcs --filter Name=is-default,Values=true --query Vpcs[].VpcId --output text`
 
 **Returns the subnet-id for a subnet with the following tag: Type,Values=Private**
 
