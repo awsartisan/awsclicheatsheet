@@ -41,3 +41,9 @@ This repo is a collection of AWS CLI queries, organized by service.
 
 **Creates a new Access Key Pair and saves the SecretAccessKey to a variable**
 `ECRUSERSECRETACCESSKEY=$(aws iam create-access-key --user-name myUser | jq -r '.[].SecretAccessKey')`
+
+
+## ELBv2
+
+**Gets the DNS name of an ALB**
+aws elbv2 describe-load-balancers | jq -r '.LoadBalancers | .[].DNSName'
